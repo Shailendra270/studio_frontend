@@ -1,0 +1,222 @@
+/* @import "video.js/dist/video-js.css"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Video.js styles imported at top to satisfy PostCSS order */
+
+@layer utilities {
+  .bg-zentag-gradient {
+    background: linear-gradient(135deg, #00EEFF 0%, #0051FF 100%);
+  }
+  
+  .bg-zentag-gradient-text {
+    background: linear-gradient(135deg, #00EEFF 0%, #0051FF 100%);
+  }
+  
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/* Shimmer loader: horizontal blue gradient sweep (consistent with user-management / blog) */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #0E0E0E;
+    font-family: Inter, system-ui, sans-serif;
+    color: #E5E7EB;
+  }
+  
+  #root {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A2A;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3A3A3A;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #4A4A4A;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #0A0A0A;
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2A2A2A #0A0A0A;
+  }
+
+  /* Sidebar specific scrollbar */
+  .sidebar-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar-scroll::-webkit-scrollbar-thumb {
+    background: #1A1A1A;
+    border-radius: 2px;
+  }
+
+  .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background: #2A2A2A;
+  }
+
+  /* Main content scrollbar */
+  .main-content-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .main-content-scroll::-webkit-scrollbar-track {
+    background: #0A0A0A;
+    border-radius: 4px;
+  }
+
+  .main-content-scroll::-webkit-scrollbar-thumb {
+    background: #2A2A2A;
+    border-radius: 4px;
+    border: 1px solid #1A1A1A;
+  }
+
+  .main-content-scroll::-webkit-scrollbar-thumb:hover {
+    background: #3A3A3A;
+  }
+
+  /* Calendar dropdown scrollbar */
+  .calendar-scroll::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .calendar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .calendar-scroll::-webkit-scrollbar-thumb {
+    background: #373737;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-zentag-gradient {
+    background: linear-gradient(135deg, #00EEFF 0%, #0051FF 100%);
+  }
+  
+  .bg-zentag-gradient-text {
+    background: linear-gradient(135deg, #00EEFF 0%, #0051FF 100%);
+  }
+  
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .animate-shimmer-sweep {
+    animation: shimmer-sweep 1.8s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.35s ease-out forwards;
+  }
+}
+
+.video-js-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+.video-js-container .video-js {
+  width: 100%;
+  height: 100%;
+}
+
+.video-js .vjs-tech {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.video-js .vjs-big-play-button {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video-js .vjs-control-bar {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.video-js .vjs-slider {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.video-js .vjs-play-progress {
+  background-color: #00cf45;
+}
+
+.video-js .vjs-volume-level {
+  background-color: #00cf45;
+}
+
+.video-js .vjs-loading-spinner {
+  border-color: #00cf45;
+}
+
+/* Ensure fullscreen toggle appears on the right side */
+.video-js .vjs-control-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.video-js .vjs-fullscreen-control {
+  order: 999;
+  margin-left: auto;
+}
