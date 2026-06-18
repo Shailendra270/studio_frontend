@@ -41,7 +41,7 @@ jobs:
 
       - name: Deploy Frontend
         run: |
-          rsync -avz --delete \
+          rsync -rvz --delete --no-times \
             -e "ssh -i ~/.ssh/ec2_key.pem" \
             dist/ \
             ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/var/www/studio_frontend/
