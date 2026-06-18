@@ -191,7 +191,7 @@ const AddTeamModal: React.FC<AddTeamModalProps> = ({ isOpen, onClose, onSubmit, 
           </div>
 
            {/* Sync single team (Season ID + Team ID) */}
-          <div>
+          {/* <div>
             <label className="block text-white text-sm font-medium mb-2">Sync single team</label>
             <div className="flex items-center gap-3">
               <Input
@@ -239,7 +239,7 @@ const AddTeamModal: React.FC<AddTeamModalProps> = ({ isOpen, onClose, onSubmit, 
                 Sync
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Footer */}

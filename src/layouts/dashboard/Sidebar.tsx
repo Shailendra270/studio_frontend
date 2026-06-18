@@ -136,8 +136,8 @@ const Sidebar: React.FC = () => {
       <div className="flex justify-center pt-5 pb-8">
         {orgLogoUrl ? (
           <img src={orgLogoUrl} alt="Organization" className="w-10 h-10 object-contain" />
-        ) : (
-          <SVGIcon src={AI_Icon} />
+        ) : ( "Studio.ai"
+          // <SVGIcon src={AI_Icon} /> 
         )}
       </div>
 

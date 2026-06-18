@@ -610,7 +610,7 @@ const EditVideoModal: React.FC<EditVideoModalProps> = ({ isOpen, onClose, video,
                       </div>
                     )}
 
-                    <div>
+                    {/* <div>
                       <Label htmlFor="matchId" className="text-white text-sm font-medium block mb-2">
                         Match ID (optional)
                       </Label>
@@ -789,7 +789,7 @@ const EditVideoModal: React.FC<EditVideoModalProps> = ({ isOpen, onClose, video,
                           {asErrorMessage(formik.errors.matchId)}
                         </div>
                       )}
-                    </div>
+                    </div> */}
 
                     <div>
                       <Label

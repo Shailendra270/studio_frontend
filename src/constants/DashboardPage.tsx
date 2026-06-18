@@ -75,7 +75,7 @@ export const dashboardStats = [
 
 // Sidebar items — permissionModule used for role-based visibility; superadminOnly hides for non-superadmin
 export const sidebarItems = [
-  { iconType: 'home', label: "Media Library", path: "/dashboard", active: true, permissionModule: "Dashboard" as const },
+  { iconType: 'home', label: "Home", path: "/dashboard", active: true, permissionModule: "Dashboard" as const },
   { iconType: 'highlights', label: "Highlights", path: "/my-highlights", permissionModule: "Highlights" as const },
   { iconType: 'published', label: "Published", path: "/publish-history", permissionModule: "Published" as const },
   { iconType: 'assets', label: "Assets", path: "/assets", permissionModule: "Assets" as const },

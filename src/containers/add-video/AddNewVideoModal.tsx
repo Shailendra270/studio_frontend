@@ -607,7 +607,7 @@ const AddVideoFeedModal: React.FC<AddVideoFeedModalProps> = ({
                       </div>
                     )}
 
-                    <div>
+                    {/* <div>
                       <Label
                         htmlFor="matchId"
                         className="text-white text-sm font-medium block mb-2"
@@ -802,7 +802,7 @@ const AddVideoFeedModal: React.FC<AddVideoFeedModalProps> = ({
                           {asErrorMessage(formik.errors.matchId)}
                         </div>
                       )}
-                    </div>
+                    </div> */}
 
                     <div>
                       <Label

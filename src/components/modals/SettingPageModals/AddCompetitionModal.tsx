@@ -285,7 +285,7 @@ const AddCompetitionModal: React.FC<AddCompetitionModalProps> = ({
           </div>
 
           {/* IDs Row */}
-          <div>
+          {/* <div>
             <div className="flex items-end gap-3">
               <div>
                 <label htmlFor="competition-season-id" className="block text-white text-sm font-medium mb-2">
@@ -344,7 +344,7 @@ const AddCompetitionModal: React.FC<AddCompetitionModalProps> = ({
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Footer Buttons */}

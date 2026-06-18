@@ -64,9 +64,11 @@ const LoginPage = () => {
       // Friendly mapping for common auth cases
       if (lower.includes('suspended')) {
         setInlineError('This organization has been suspended. Please reach out to your administrator.');
-      } else if (lower.includes('deactivated') || lower.includes('access has been deactivated')) {
-        setInlineError('Your account is inactive. Please reach out to your organization admin.');
-      } else if (lower.includes('incorrect email or password')) {
+      }
+      //  else if (lower.includes('deactivated') || lower.includes('access has been deactivated')) {
+      //   setInlineError('Your account is inactive. Please reach out to your organization admin.');
+      // } 
+      else if (lower.includes('incorrect email or password')) {
         setInlineError('Incorrect email or password. Please try again.');
       } else if (lower.includes('cannot read properties') || lower.includes('undefined')) {
         // Hide internal error details behind a friendly message

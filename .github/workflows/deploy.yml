@@ -1,0 +1,53 @@
+name: Deploy Frontend to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create .env
+        run: |
+          echo "VITE_API_HOSTNAME=${{ secrets.VITE_API_HOSTNAME }}" > .env
+          echo "VITE_VIDEO_API_URL=${{ secrets.VITE_VIDEO_API_URL }}" >> .env
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2_key.pem
+          chmod 600 ~/.ssh/ec2_key.pem
+
+      - name: Add EC2 to Known Hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy Frontend
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/ec2_key.pem" \
+            dist/ \
+            ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/var/www/studio_frontend/
+
+      - name: Reload Nginx
+        run: |
+          ssh -i ~/.ssh/ec2_key.pem \
+          ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} \
+          "sudo systemctl reload nginx"
