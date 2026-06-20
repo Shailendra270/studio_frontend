@@ -84,7 +84,7 @@ const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <AuthFormContainer subtitle="Welcome to studio AI Creative platform">
+      <AuthFormContainer subtitle="Welcome to Studio AI Creative platform">
         {inlineError && (
           <div className="mb-4 rounded-xl border border-red-500/60 bg-red-500/10 px-4 py-3 text-xs sm:text-sm text-red-200">
             {inlineError}
